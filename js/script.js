@@ -3,7 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 	
-	document.querySelectorAll('.work-field__item').forEach((item, i) => {
+	document.querySelectorAll('.work-field__item').forEach((item) => {
 		item.addEventListener('mouseover', () => {
 			item.querySelector('.delete').style.display = 'block';
 		});
@@ -13,9 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	
 		
-	document.querySelectorAll('.delete').forEach((btn, i) => {
+	document.querySelectorAll('.delete').forEach((btn) => {
 		btn.addEventListener('click', () => {
-			btn.parentElement.remove();
+			cuteHide(btn.parentElement);
 		});
 	});
+
+	function cuteHide(element) {
+		element.animate({opacity: '0'}, 250);
+		setTimeout( function(){
+			element.remove();
+			console.log(1);
+		  }, 250);
+	}
+	
 });
